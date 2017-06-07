@@ -4,3 +4,7 @@
 
 [gitter-image]: https://img.shields.io/badge/GITTER-join%20chat-green.svg?style=flat-square
 [gitter-url]: https://gitter.im/alibaba/macaca
+
+``` bash
+$ docker build . -t="macaca-electron-docker"
+```
