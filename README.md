@@ -1,9 +1,10 @@
 # Macaca Electron Docker Image
 
-[![Gitter Chat][gitter-image]][gitter-url]
+[![build status][travis-image]][travis-url]
+[![Test coverage][coveralls-image]][coveralls-url]
 
-[gitter-image]: https://img.shields.io/badge/GITTER-join%20chat-green.svg?style=flat-square
-[gitter-url]: https://gitter.im/alibaba/macaca
+[travis-image]: https://img.shields.io/travis/macacajs/uitest.svg?style=flat-square
+[travis-url]: https://travis-ci.org/macacajs/uitest
 
 ``` bash
 $ docker build . -t="macaca-electron-docker"
