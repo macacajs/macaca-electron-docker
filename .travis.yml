@@ -7,4 +7,4 @@ services:
 install:
   - echo Hello docker!
 script:
-  - docker build . -t="macaca-electron-docker"
+  - docker build . -t="macacajs/macaca-electron-docker"

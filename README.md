@@ -6,5 +6,5 @@
 [travis-url]: https://travis-ci.org/macacajs/macaca-electron-docker
 
 ``` bash
-$ docker build . -t="macaca-electron-docker"
+$ docker build . -t="macacajs/macaca-electron-docker"
 ```
