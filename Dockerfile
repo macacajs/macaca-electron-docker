@@ -1,4 +1,4 @@
-FROM node:6
+FROM node:7
 
 COPY sources.list /etc/apt/sources.list
 
@@ -18,3 +18,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
       ttf-wqy-microhei \
       fonts-arphic-ukai \
       fonts-arphic-uming
+
+COPY ./entrypoint.sh /
+
+ENTRYPOINT ["/entrypoint.sh"]
