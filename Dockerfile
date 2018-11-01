@@ -21,11 +21,11 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
       xauth \
       libnotify-dev \
       make \
-      fonts-droid ttf-wqy-zenhei ttf-wqy-microhei fonts-arphic-ukai fonts-arphic-uming \
+      fonts-droid ttf-wqy-zenhei ttf-wqy-microhei fonts-arphic-ukai fonts-arphic-uming fonts-tlwg-garuda \
       && rm -rf /var/lib/apt/lists/*
 
 # Variable Layer: Node.js etc.
-ENV NODE_VERSION=8.11.2 \
+ENV NODE_VERSION=8.12.0 \
     NODE_REGISTRY=https://npm.taobao.org/mirrors/node \
     CHROMEDRIVER_CDNURL=http://npm.taobao.org/mirrors/chromedriver/ \
     ELECTRON_MIRROR=https://npm.taobao.org/mirrors/electron/ \
