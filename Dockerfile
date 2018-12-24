@@ -1,35 +1,40 @@
-FROM scratch
+FROM centos:centos7
 
-ADD rootfs.tar.xz /
-
-COPY sources.list /etc/apt/sources.list
-# Freeze Dependencies and Cache Layer
-RUN apt-get update && apt-get install -y --no-install-recommends \
-      -t jessie-backports \
+RUN yum -y install curl \
+    && mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup \
+    && curl http://mirrors.163.com/.help/CentOS7-Base-163.repo -o /etc/yum.repos.d/CentOS7-Base-163.repo \
+    && yum clean all \
+    && yum makecache \
+    && yum install -y make \
+      bzip2 \
+      gcc-c++ \
       ca-certificates \
-      curl \
+      xorg-x11-server-Xvfb \
+      gtk2 \
+      vim \
       git \
-      ssh \
-      openjdk-8-jdk \
-      xvfb \
-      libxtst6 \
-      libgtk2.0 \
-      libgconf2-dev \
-      libasound2 \
-      libxss1 \
-      libnss3 \
-      xauth \
-      libnotify-dev \
-      make \
-      fonts-droid ttf-wqy-zenhei ttf-wqy-microhei fonts-arphic-ukai fonts-arphic-uming fonts-tlwg-garuda \
-      && rm -rf /var/lib/apt/lists/*
+      gtk2-devel \
+      libXScrnSaver \
+      GConf2 \
+      libXtst.i686 \
+      alsa-lib-devel \
+      libXScrnSaver* \
+      epel-release \
+      libappindicator-gtk3 \
+      libnss3.so \
+      glibc-common \
+      xorg-x11-fonts-Type1 \
+      wqy-microhei-fonts \
+      wqy-zenhei-fonts \
+      thai-scalable-garuda-fonts \
+      cjkuni-ukai-fonts \
+      cjkuni-uming-fonts
 
 # Variable Layer: Node.js etc.
 ENV NODE_VERSION=8.12.0 \
     NODE_REGISTRY=https://npm.taobao.org/mirrors/node \
     CHROMEDRIVER_CDNURL=http://npm.taobao.org/mirrors/chromedriver/ \
     ELECTRON_MIRROR=https://npm.taobao.org/mirrors/electron/ \
-    JAVA_HOME='/usr/lib/jvm/java-8-openjdk-amd64' \
     DISPLAY=':99.0' \
     NODE_IN_DOCKER=1
 
